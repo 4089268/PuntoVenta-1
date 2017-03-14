@@ -11,7 +11,7 @@ namespace ClasesSistemaVentas
     public class clConexion
     {
         //variables necesarias para la conexion con la base de datos
-        private string stringconexion = "server=localhost; user id=root; pwd=sa4925; database=puntoventa";
+        private string stringconexion = "server=localhost; user id=root; pwd=j6r3uwb9; database=puntoventa";
         private MySqlConnection conexion;
 
         //constructor
