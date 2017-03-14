@@ -17,6 +17,7 @@ namespace Sistemas_de_Ventas
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new INGRESO_SISTEMA());
+
             
             //Application.Run(new REPORTE_VENTAS());
         }

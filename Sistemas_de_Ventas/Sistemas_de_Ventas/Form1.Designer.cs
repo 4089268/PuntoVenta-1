@@ -40,14 +40,14 @@
             // 
             // btAceptar
             // 
-            this.btAceptar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btAceptar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAceptar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btAceptar.Location = new System.Drawing.Point(66, 165);
             this.btAceptar.Name = "btAceptar";
             this.btAceptar.Size = new System.Drawing.Size(124, 37);
             this.btAceptar.TabIndex = 0;
-            this.btAceptar.Text = "ACEPTAR";
+            this.btAceptar.Text = "ENTRAR";
             this.btAceptar.UseVisualStyleBackColor = false;
             this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
             // 
@@ -85,12 +85,13 @@
             // btCancelar
             // 
             this.btCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancelar.Location = new System.Drawing.Point(215, 165);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(124, 37);
             this.btCancelar.TabIndex = 5;
-            this.btCancelar.Text = "CANCELAR";
+            this.btCancelar.Text = "SALIR";
             this.btCancelar.UseVisualStyleBackColor = false;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
@@ -120,7 +121,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.CancelButton = this.btCancelar;
             this.ClientSize = new System.Drawing.Size(398, 232);
             this.Controls.Add(this.btActualizarLista);
             this.Controls.Add(this.cbUsuarios);
@@ -129,7 +131,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btAceptar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "INGRESO_SISTEMA";

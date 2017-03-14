@@ -37,29 +37,20 @@ namespace Sistemas_de_Ventas
             }
         }
 
-        private byte intentos = 0;
+        
 
-        private void presionaAceptar()
-        {
-            intentos++;
-            if (intentos > 3)
-            {
-                MessageBox.Show("Has superado los intentos de ingreso.");
-                Close();
-            }
-            try
-            {
+        private void presionaAceptar(){
+             try{
                 string nombre = cbUsuarios.SelectedItem.ToString();
                 clUsuario usuario = new clUsuario(clConsultasUsuarios.ObtenerDatosUsuario(nombre));
 
-                if (tbPassword.Text == usuario.Password)
-                {
-                    PRINCIPAL princip = new PRINCIPAL(usuario);
+                if (tbPassword.Text == usuario.Password){
+                    Principal princip = new Principal(usuario , this);
                     princip.Visible = true;
                     tbPassword.Text = null;
+                    this.Visible = false;
                 }
-                else
-                {
+                else{
                     MessageBox.Show("Usuario o Contraseña incorrectos!");
                 }
 
@@ -74,7 +65,11 @@ namespace Sistemas_de_Ventas
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("¿Desea salir?", "saliendo...", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void cbUsuarios_Validated(object sender, EventArgs e)

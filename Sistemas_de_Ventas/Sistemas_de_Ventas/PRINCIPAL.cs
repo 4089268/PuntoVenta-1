@@ -13,20 +13,22 @@ using ClasesSistemaVentas;
 
 namespace Sistemas_de_Ventas
 {
-    public partial class PRINCIPAL : Form
+    public partial class Principal : Form
     {
         private clUsuario usuario;
+        private INGRESO_SISTEMA login;
 
-        public PRINCIPAL(clUsuario user)
+        public Principal(clUsuario user, INGRESO_SISTEMA login)
         {
             InitializeComponent();
+            this.login = login;
             usuario = user;
             if(usuario.Tipo == "cajero")
             {
                 msOpciones.Items[0].Enabled = false;
             }
         }
-
+        
         private void Salir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -66,6 +68,17 @@ namespace Sistemas_de_Ventas
         {
             REPORTE_CAJERO reporte = new REPORTE_CAJERO();
             reporte.Visible = true;
+        }
+
+        private void Principal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            login.Visible = true;
+        }
+
+        private void Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var window = MessageBox.Show("¿Desea salir del Sistema?", "Saliendo...", MessageBoxButtons.YesNo);
+            e.Cancel = (window == DialogResult.No);
         }
     }
 }

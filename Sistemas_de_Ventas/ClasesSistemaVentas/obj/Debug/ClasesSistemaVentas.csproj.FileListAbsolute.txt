@@ -8,6 +8,6 @@ C:\SistemaPuntoVenta\Sistemas_de_Ventas\ClasesSistemaVentas\bin\Debug\itextsharp
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\ClasesSistemaVentas\bin\Debug\ClasesSistemaVentas.dll
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\ClasesSistemaVentas\bin\Debug\ClasesSistemaVentas.pdb
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\ClasesSistemaVentas\bin\Debug\itextsharp.dll
-C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\ClasesSistemaVentas\obj\Debug\ClasesSistemaVentas.csprojResolveAssemblyReference.cache
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\ClasesSistemaVentas\obj\Debug\ClasesSistemaVentas.dll
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\ClasesSistemaVentas\obj\Debug\ClasesSistemaVentas.pdb
+C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\ClasesSistemaVentas\obj\Debug\ClasesSistemaVentas.csprojResolveAssemblyReference.cache
