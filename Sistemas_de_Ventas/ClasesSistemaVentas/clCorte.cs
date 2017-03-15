@@ -14,69 +14,29 @@ namespace ClasesSistemaVentas
         string turno;
         float total;
 
-        public int IdCorte
-        {
-            get
-            {
-                return idCorte;
-            }
-
-            set
-            {
-                idCorte = value;
-            }
+        public int IdCorte{
+            get{ return idCorte;}
+            set{ idCorte = value;}
         }
 
-        public DateTime Fecha
-        {
-            get
-            {
-                return fecha;
-            }
-
-            set
-            {
-                fecha = value;
-            }
+        public DateTime Fecha{
+            get {return fecha; }
+            set{fecha = value;}
         }
 
-        public string Cajero
-        {
-            get
-            {
-                return cajero;
-            }
-
-            set
-            {
-                cajero = value;
-            }
+        public string Cajero{
+            get{ return cajero; }
+            set{ cajero = value;}
         }
 
-        public string Turno
-        {
-            get
-            {
-                return turno;
-            }
-
-            set
-            {
-                turno = value;
-            }
+        public string Turno {
+            get{return turno;}
+            set{turno = value;}
         }
 
-        public float Total
-        {
-            get
-            {
-                return total;
-            }
-
-            set
-            {
-                total = value;
-            }
+        public float Total{
+            get{return total;}
+            set{total = value;}
         }
     }
 }

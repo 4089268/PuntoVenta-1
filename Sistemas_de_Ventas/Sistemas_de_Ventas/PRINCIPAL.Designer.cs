@@ -44,11 +44,13 @@
             // 
             // msOpciones
             // 
+            this.msOpciones.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.msOpciones.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.msOpciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Adminstrador,
             this.Caja,
             this.Salir});
+            this.msOpciones.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.msOpciones.Location = new System.Drawing.Point(0, 0);
             this.msOpciones.Name = "msOpciones";
             this.msOpciones.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);

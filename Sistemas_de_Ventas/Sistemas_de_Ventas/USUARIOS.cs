@@ -20,7 +20,7 @@ namespace Sistemas_de_Ventas
 
         public USUARIOS()
         {
-            InitializeComponent();
+            InitializeComponent();           
 
             cbTipo.Enabled = false;
             cbTipo.Visible = false;

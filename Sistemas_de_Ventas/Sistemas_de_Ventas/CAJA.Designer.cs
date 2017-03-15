@@ -53,6 +53,7 @@
             this.lbCantidad = new System.Windows.Forms.Label();
             this.lbTurno = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_cerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -303,12 +304,26 @@
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
+            // btn_cerrar
+            // 
+            this.btn_cerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btn_cerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_cerrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cerrar.Location = new System.Drawing.Point(710, 451);
+            this.btn_cerrar.Name = "btn_cerrar";
+            this.btn_cerrar.Size = new System.Drawing.Size(137, 36);
+            this.btn_cerrar.TabIndex = 3;
+            this.btn_cerrar.Text = "Cerrar Caja";
+            this.btn_cerrar.UseVisualStyleBackColor = true;
+            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
+            // 
             // CAJA
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(859, 499);
+            this.ControlBox = false;
             this.Controls.Add(this.lbTurno);
             this.Controls.Add(this.lbCantidad);
             this.Controls.Add(this.pictureBox1);
@@ -324,18 +339,21 @@
             this.Controls.Add(this.lbProducto);
             this.Controls.Add(this.tbCantidad);
             this.Controls.Add(this.tbCodigoArt);
+            this.Controls.Add(this.btn_cerrar);
             this.Controls.Add(this.btCobrar);
             this.Controls.Add(this.btCancelarVenta);
             this.Controls.Add(this.btCancelarArt);
             this.Controls.Add(this.btBuscar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
+            this.Location = new System.Drawing.Point(20, 20);
             this.MinimizeBox = false;
             this.Name = "CAJA";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CAJA";
+            this.TopMost = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.CAJA_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CAJA_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -369,5 +387,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbCantidad;
         private System.Windows.Forms.Label lbTurno;
+        private System.Windows.Forms.Button btn_cerrar;
     }
 }

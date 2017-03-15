@@ -18,25 +18,20 @@ namespace Sistemas_de_Ventas
         private clUsuario usuario;
         private float fondo;
         private clCorte corte;
+        private Principal principal;
 
-        public ABRIRTURNO(clUsuario user)
-        {
+        public ABRIRTURNO(clUsuario user,Principal principal){
             InitializeComponent();
+            this.principal = principal;
+
             usuario = user;
             textBox1.Text = user.Nombre;
             cbTurnos.SelectedIndex = 0;
             tbFondo.Text = "0.0";
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btAbrirTurno_Click(object sender, EventArgs e)
-        {
-            try
-            {
+                
+        private void btAbrirTurno_Click(object sender, EventArgs e){
+            try{
                 corte = new clCorte();
                 corte.IdCorte = int.Parse(clConsultasCorte.SiguienteCorte());
                 corte.Fecha = DateTime.Today;
@@ -50,37 +45,32 @@ namespace Sistemas_de_Ventas
                 btCerrarTurno.Enabled = true;
                 btEntrarCaja.Enabled = true;
             }
-            catch
-            {
+            catch{
                 MessageBox.Show("Error al Generar Corte!!!");
             }
         }
 
-        private void btCerrarTurno_Click(object sender, EventArgs e)
-        {
+        private void btCerrarTurno_Click(object sender, EventArgs e){
             //MessageBox.Show("Fondo: $ " + fondo);
             FINCORTE fin = new FINCORTE(corte,fondo);
             fin.Visible = true;
             this.Close();
         }
 
-        private void btEntrarCaja_Click(object sender, EventArgs e)
-        {
+        private void btEntrarCaja_Click(object sender, EventArgs e){
             CAJA caja1 = new CAJA(corte);
             caja1.Visible = true;
+            caja1.MdiParent = principal;
         }
 
-        private void tbFondo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (tbFondo.Text.Contains('.'))
-            {
+        private void tbFondo_KeyPress(object sender, KeyPressEventArgs e){
+            if (tbFondo.Text.Contains('.')){
                 if (!char.IsDigit(e.KeyChar))
                     e.Handled = true;
                 if (e.KeyChar == '\b')
                     e.Handled = false;
             }
-            else
-            {
+            else{
                 if (!char.IsDigit(e.KeyChar))
                     e.Handled = true;
                 if (e.KeyChar == '.' || e.KeyChar == '\b')

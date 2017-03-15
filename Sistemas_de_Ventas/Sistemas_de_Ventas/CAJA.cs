@@ -286,10 +286,8 @@ namespace Sistemas_de_Ventas
 
         }
 
-        private void btCobrar_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private void btCobrar_Click(object sender, EventArgs e){
+            try{
                 COBRAR cobrar = new COBRAR(totalV);
                 cobrar.Visible = true;
                 registrarVenta();
@@ -339,6 +337,15 @@ namespace Sistemas_de_Ventas
             lbSubTotal.Text = "SUB TOTAL: ";
             lbIva.Text = "IVA: ";
             lbTotal.Text = "TOTAL: ";
+        }
+
+        private void btn_cerrar_Click(object sender, EventArgs e){
+            this.Close();
+        }
+
+        private void CAJA_FormClosing(object sender, FormClosingEventArgs e){
+            var window = MessageBox.Show("¿Desea salir del Caja?", "Saliendo...", MessageBoxButtons.YesNo);
+            e.Cancel = (window == DialogResult.No);
         }
     }
 }
