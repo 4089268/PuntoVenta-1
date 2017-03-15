@@ -46,7 +46,6 @@ C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\Sistemas_de_V
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\Sistemas_de_Ventas\bin\Debug\ClasesSistemaVentas.dll
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\Sistemas_de_Ventas\bin\Debug\ClasesSistemaVentas.pdb
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\Sistemas_de_Ventas\obj\Debug\Sistemas_de_Ventas.csprojResolveAssemblyReference.cache
-C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\Sistemas_de_Ventas\obj\Debug\Sistemas_de_Ventas.ABRIRTURNO.resources
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\Sistemas_de_Ventas\obj\Debug\Sistemas_de_Ventas.BUSCARPRODUCTO.resources
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\Sistemas_de_Ventas\obj\Debug\Sistemas_de_Ventas.CAJA.resources
 C:\Users\Salvador\Documents\GitHub\PuntoVenta-1\Sistemas_de_Ventas\Sistemas_de_Ventas\obj\Debug\Sistemas_de_Ventas.CAMBIO.resources

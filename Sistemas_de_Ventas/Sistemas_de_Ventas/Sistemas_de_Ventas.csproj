@@ -55,12 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABRIRTURNO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ABRIRTURNO.Designer.cs">
-      <DependentUpon>ABRIRTURNO.cs</DependentUpon>
-    </Compile>
     <Compile Include="BUSCARPRODUCTO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,9 +135,6 @@
     <Compile Include="USUARIOS.Designer.cs">
       <DependentUpon>USUARIOS.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ABRIRTURNO.resx">
-      <DependentUpon>ABRIRTURNO.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="BUSCARPRODUCTO.resx">
       <DependentUpon>BUSCARPRODUCTO.cs</DependentUpon>
     </EmbeddedResource>

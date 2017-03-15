@@ -34,8 +34,8 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
-            this.cbUsuarios = new System.Windows.Forms.ComboBox();
             this.btActualizarLista = new System.Windows.Forms.Button();
+            this.tb_username = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btAceptar
@@ -69,8 +69,6 @@
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(275, 22);
             this.tbPassword.TabIndex = 3;
-            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPassword_KeyPress);
-            this.tbPassword.Validated += new System.EventHandler(this.tbPassword_Validated);
             // 
             // label2
             // 
@@ -95,29 +93,25 @@
             this.btCancelar.UseVisualStyleBackColor = false;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
-            // cbUsuarios
-            // 
-            this.cbUsuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUsuarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbUsuarios.FormattingEnabled = true;
-            this.cbUsuarios.Location = new System.Drawing.Point(108, 50);
-            this.cbUsuarios.Name = "cbUsuarios";
-            this.cbUsuarios.Size = new System.Drawing.Size(221, 24);
-            this.cbUsuarios.TabIndex = 6;
-            this.cbUsuarios.Validated += new System.EventHandler(this.cbUsuarios_Validated);
-            // 
             // btActualizarLista
             // 
-            this.btActualizarLista.Image = global::Sistemas_de_Ventas.Properties.Resources.actualizar;
-            this.btActualizarLista.Location = new System.Drawing.Point(340, 33);
+            this.btActualizarLista.Location = new System.Drawing.Point(0, 0);
             this.btActualizarLista.Name = "btActualizarLista";
-            this.btActualizarLista.Size = new System.Drawing.Size(43, 41);
-            this.btActualizarLista.TabIndex = 7;
-            this.btActualizarLista.UseVisualStyleBackColor = true;
-            this.btActualizarLista.Click += new System.EventHandler(this.btActualizarLista_Click);
+            this.btActualizarLista.Size = new System.Drawing.Size(75, 23);
+            this.btActualizarLista.TabIndex = 0;
+            // 
+            // tb_username
+            // 
+            this.tb_username.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_username.Location = new System.Drawing.Point(108, 50);
+            this.tb_username.Name = "tb_username";
+            this.tb_username.PasswordChar = '*';
+            this.tb_username.Size = new System.Drawing.Size(275, 22);
+            this.tb_username.TabIndex = 3;
             // 
             // INGRESO_SISTEMA
             // 
+            this.AcceptButton = this.btAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -125,9 +119,9 @@
             this.CancelButton = this.btCancelar;
             this.ClientSize = new System.Drawing.Size(398, 232);
             this.Controls.Add(this.btActualizarLista);
-            this.Controls.Add(this.cbUsuarios);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.tb_username);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btAceptar);
@@ -137,6 +131,8 @@
             this.Name = "INGRESO_SISTEMA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "INGRESAR AL SISTEMA";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.INGRESO_SISTEMA_FormClosed);
+            this.Load += new System.EventHandler(this.INGRESO_SISTEMA_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,8 +145,8 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btCancelar;
-        private System.Windows.Forms.ComboBox cbUsuarios;
         private System.Windows.Forms.Button btActualizarLista;
+        private System.Windows.Forms.TextBox tb_username;
     }
 }
 

@@ -13,8 +13,7 @@ using ClasesSistemaVentas;
 
 namespace Sistemas_de_Ventas
 {
-    public partial class CAJA : Form
-    {
+    public partial class CAJA : Form {
         private clCorte corteActual;
         private int ventaNumero;
 
@@ -25,83 +24,69 @@ namespace Sistemas_de_Ventas
 
         private clProducto producto;
         private float cantProducto = 0;
-        
-        public CAJA(clCorte corte)
+
+
+        private clUsuario usuario;
+        private float fondo;
+        private clCorte corte;
+        private Principal principal;
+
+        public CAJA(clUsuario user)
         {
             InitializeComponent();
+            usuario = user;
+            textBox1.Text = user.Nombre;
+            cbTurnos.SelectedIndex = 0;
+            tbFondo.Text = "0.0";
 
-            corteActual = corte;
-            lbCajero.Text = lbCajero.Text + " " + corte.Cajero;
-            lbTurno.Text = lbTurno.Text + " " + corte.Turno;
-            ventaNumero = int.Parse(clConsultasVentas.SiguienteVenta());
-            lbTicket.Text = lbTicket.Text + " " + ventaNumero;
-            tbCodigoArt.Focus();
-
-            lbFecha.Text = lbFecha.Text + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year;
-            lbHora.Text = lbHora.Text + DateTime.Now.Hour + ":" + DateTime.Now.Minute;
         }
 
-        private void CAJA_Activated(object sender, EventArgs e)
-        {
+        private void CAJA_Activated(object sender, EventArgs e) {
             tbCodigoArt.Focus();
         }
 
-        private void tbCodigoArt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsLetterOrDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
-            {
+        private void tbCodigoArt_KeyPress(object sender, KeyPressEventArgs e){
+            if (Char.IsLetterOrDigit(e.KeyChar) || Char.IsControl(e.KeyChar)){
                 e.Handled = false;
             }
-            else
-            {
+            else {
                 e.Handled = true;
             }
 
-            if(e.KeyChar == '\r')
-            {
+            if(e.KeyChar == '\r') {
                 //MessageBox.Show("Enter");
                 producto = clConsultasProductos.BuscarPorCodigoExterno(tbCodigoArt.Text);
-                if (string.IsNullOrWhiteSpace(producto.CodigoExt1))
-                {
+                if (string.IsNullOrWhiteSpace(producto.CodigoExt1)){
                     MessageBox.Show("Producto no Encontrado!");
                     tbCodigoArt.Text = null;
                     //tbCodigoArt.Focus;
                 }
-                else
-                {
+                else {
                     tbCantidad.Focus();
                 }
             }    
         }
 
-        private void tbCantidad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(producto.Venta1 == "unidad")
-            {
-                if (Char.IsDigit(e.KeyChar))
-                {
+        private void tbCantidad_KeyPress(object sender, KeyPressEventArgs e){
+            if(producto.Venta1 == "unidad"){
+                if (Char.IsDigit(e.KeyChar)) {
                     e.Handled = false;
                 }
-                else if (Char.IsControl(e.KeyChar))
-                {
+                else if (Char.IsControl(e.KeyChar)) {
                     e.Handled = false;
                 }
-                else
-                {
+                else {
                     e.Handled = true;
                 }
             }
-            else
-            {
-                if (tbCantidad.Text.Contains('.'))
-                {
+            else{
+                if (tbCantidad.Text.Contains('.')){
                     if (!char.IsDigit(e.KeyChar))
                         e.Handled = true;
                     if (e.KeyChar == '\b')
                         e.Handled = false;
                 }
-                else
-                {
+                else{
                     if (!char.IsDigit(e.KeyChar))
                         e.Handled = true;
                     if (e.KeyChar == '.' || e.KeyChar == '\b')
@@ -109,8 +94,7 @@ namespace Sistemas_de_Ventas
                 }
             }
 
-            if(e.KeyChar == '\r' && !string.IsNullOrWhiteSpace(tbCantidad.Text))
-            {
+            if(e.KeyChar == '\r' && !string.IsNullOrWhiteSpace(tbCantidad.Text)){
                 cantProducto = float.Parse(tbCantidad.Text);
                 subtotalV = subtotalV + producto.Precio1 * cantProducto;
                 ivaV = ivaV + (producto.Precio1 * cantProducto * producto.IVA1 / 100);
@@ -133,31 +117,25 @@ namespace Sistemas_de_Ventas
             }
         }
 
-        private void btBuscar_Click(object sender, EventArgs e)
-        {
+        private void btBuscar_Click(object sender, EventArgs e) {
             BUSCARPRODUCTO buscar = new BUSCARPRODUCTO();
             buscar.Visible = true;
         }
 
-        private void tbCodigoArt_KeyDown(object sender, KeyEventArgs e)
-        {
+        private void tbCodigoArt_KeyDown(object sender, KeyEventArgs e){
             if (e.KeyCode == Keys.Escape) this.Close();
 
-            if (e.KeyCode == Keys.F1)
-            {
+            if (e.KeyCode == Keys.F1){
                 BUSCARPRODUCTO buscar = new BUSCARPRODUCTO();
                 buscar.Visible = true;
             }
 
-            if(e.KeyCode == Keys.F2)
-            {
+            if(e.KeyCode == Keys.F2){
                 try
                 {
                     string codigo = tbCodigoArt.Text;
-                    foreach(DataGridViewRow linea in dataGridView1.Rows)
-                    {
-                        if (linea.Cells[0].Value.ToString() == codigo)
-                        {
+                    foreach(DataGridViewRow linea in dataGridView1.Rows){
+                        if (linea.Cells[0].Value.ToString() == codigo){
                             dataGridView1.Rows.Remove(linea);
                             numProds--;
                             clProducto prod = clConsultasProductos.BuscarPorCodigoExterno(linea.Cells[0].Value.ToString());
@@ -189,10 +167,8 @@ namespace Sistemas_de_Ventas
                 catch { }
             }
 
-            if (e.KeyCode == Keys.F3)
-            {
-                try
-                {
+            if (e.KeyCode == Keys.F3) {
+                try{
                     dataGridView1.Rows.Clear();
                     subtotalV = 0;
                     ivaV = 0;
@@ -208,10 +184,8 @@ namespace Sistemas_de_Ventas
                 catch { }
             }
 
-            if (e.KeyCode == Keys.F4)
-            {
-                try
-                {
+            if (e.KeyCode == Keys.F4){
+                try{
                     COBRAR cobrar = new COBRAR(totalV);
                     cobrar.Visible = true;
                     
@@ -222,15 +196,12 @@ namespace Sistemas_de_Ventas
             }
         }
 
-        private void btCancelarArt_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private void btCancelarArt_Click(object sender, EventArgs e){
+            try{
                 string codigo = tbCodigoArt.Text;
                 foreach (DataGridViewRow linea in dataGridView1.Rows)
                 {
-                    if (linea.Cells[0].Value.ToString() == codigo)
-                    {
+                    if (linea.Cells[0].Value.ToString() == codigo){
                         dataGridView1.Rows.Remove(linea);
                         numProds--;
                         clProducto prod = clConsultasProductos.BuscarPorCodigoExterno(linea.Cells[0].Value.ToString());
@@ -242,8 +213,7 @@ namespace Sistemas_de_Ventas
                         ivaV = ivaV - iva2;
                         totalV = totalV - tot;
 
-                        if(numProds == 0)
-                        {
+                        if(numProds == 0){
                             subtotalV = 0;
                             ivaV = 0;
                             totalV = 0;
@@ -262,10 +232,8 @@ namespace Sistemas_de_Ventas
             catch { }
         }
 
-        private void btCancelarVenta_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private void btCancelarVenta_Click(object sender, EventArgs e){
+            try{
                 dataGridView1.Rows.Clear();
                 subtotalV = 0;
                 ivaV = 0;
@@ -280,12 +248,7 @@ namespace Sistemas_de_Ventas
             }
             catch { }
         }
-
-        private void tbCantidad_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btCobrar_Click(object sender, EventArgs e){
             try{
                 COBRAR cobrar = new COBRAR(totalV);
@@ -296,8 +259,7 @@ namespace Sistemas_de_Ventas
             catch { }
         }
 
-        private void registrarVenta()
-        {
+        private void registrarVenta(){
             clVenta vent = new clVenta();
             vent.IdVenta = ventaNumero;
             vent.Hora = DateTime.Now;
@@ -309,8 +271,7 @@ namespace Sistemas_de_Ventas
 
             clConsultasVentas.ActualizarCorte(corteActual.IdCorte, totalV);
 
-            foreach (DataGridViewRow linea in dataGridView1.Rows)
-            {
+            foreach (DataGridViewRow linea in dataGridView1.Rows){
                 string codigo = linea.Cells[0].Value.ToString();
                 string descrp = linea.Cells[1].Value.ToString();
                 float cantid = float.Parse(linea.Cells[3].Value.ToString());
@@ -322,8 +283,7 @@ namespace Sistemas_de_Ventas
             clConsultasVentas.Registra_Venta_Detalle(vent.IdVenta);
         }
 
-        private void InicializaVenta()
-        {
+        private void InicializaVenta(){
             tbCodigoArt.Text = null;
             tbCantidad.Text = null;
             dataGridView1.Rows.Clear();
@@ -339,6 +299,10 @@ namespace Sistemas_de_Ventas
             lbTotal.Text = "TOTAL: ";
         }
 
+
+
+
+
         private void btn_cerrar_Click(object sender, EventArgs e){
             this.Close();
         }
@@ -346,6 +310,45 @@ namespace Sistemas_de_Ventas
         private void CAJA_FormClosing(object sender, FormClosingEventArgs e){
             var window = MessageBox.Show("¿Desea salir del Caja?", "Saliendo...", MessageBoxButtons.YesNo);
             e.Cancel = (window == DialogResult.No);
+        }
+
+        private void btAbrirTurno_Click(object sender, EventArgs e) {
+            try{
+                corte = new clCorte();
+                corte.IdCorte = int.Parse(clConsultasCorte.SiguienteCorte());
+                corte.Fecha = DateTime.Today;
+                corte.Cajero = usuario.Nombre;
+                corte.Turno = cbTurnos.SelectedItem.ToString();
+                corte.Total = 0;
+                fondo = float.Parse(tbFondo.Text);
+                
+                clConsultasCorte.NuevoCorte(corte);
+                btAbrirTurno.Enabled = false;
+                btCerrarTurno.Enabled = true;
+
+                pnl_caja.Visible = true;
+                pnl_caja.Enabled = true;
+
+                corteActual = corte;
+                lbCajero.Text = lbCajero.Text + " " + corte.Cajero;
+                lbTurno.Text = lbTurno.Text + " " + corte.Turno;
+                ventaNumero = int.Parse(clConsultasVentas.SiguienteVenta());
+                lbTicket.Text = lbTicket.Text + " " + ventaNumero;
+                tbCodigoArt.Focus();
+
+                lbFecha.Text = lbFecha.Text + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year;
+                lbHora.Text = lbHora.Text + DateTime.Now.Hour + ":" + DateTime.Now.Minute;
+
+            }
+            catch{
+                MessageBox.Show("Error al Generar Corte!!!");
+            }            
+        }
+
+        private void btCerrarTurno_Click(object sender, EventArgs e){
+            FINCORTE fin = new FINCORTE(corte, fondo);
+            fin.Visible = true;
+            this.Close();
         }
     }
 }

@@ -39,6 +39,7 @@
             this.porCajeroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Caja = new System.Windows.Forms.ToolStripMenuItem();
             this.Salir = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_Iniciar = new System.Windows.Forms.ToolStripMenuItem();
             this.msOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             this.msOpciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Adminstrador,
             this.Caja,
-            this.Salir});
+            this.Salir,
+            this.btn_Iniciar});
             this.msOpciones.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.msOpciones.Location = new System.Drawing.Point(0, 0);
             this.msOpciones.Name = "msOpciones";
@@ -127,6 +129,16 @@
             this.Salir.Text = "SALIR";
             this.Salir.Click += new System.EventHandler(this.Salir_Click);
             // 
+            // btn_Iniciar
+            // 
+            this.btn_Iniciar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btn_Iniciar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Iniciar.Margin = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.btn_Iniciar.Name = "btn_Iniciar";
+            this.btn_Iniciar.Size = new System.Drawing.Size(74, 22);
+            this.btn_Iniciar.Text = "INICIAR";
+            this.btn_Iniciar.Click += new System.EventHandler(this.btn_Iniciar_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -164,5 +176,6 @@
         private System.Windows.Forms.ToolStripMenuItem reporteDeVentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porTurnoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porCajeroToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem btn_Iniciar;
     }
 }

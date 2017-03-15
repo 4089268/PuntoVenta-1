@@ -17,16 +17,46 @@ namespace Sistemas_de_Ventas
         private clUsuario usuario;
         private INGRESO_SISTEMA login;
 
-        public Principal(clUsuario user, INGRESO_SISTEMA login){
+        public Principal(){
             InitializeComponent();
-            this.login = login;
-            usuario = user;
-            if(usuario.Tipo == "cajero")
-            {
-                msOpciones.Items[0].Enabled = false;
+
+            msOpciones.Items[0].Enabled = false;
+            msOpciones.Items[1].Enabled = false;
+            msOpciones.Items[2].Enabled = false;
+
+            msOpciones.Items[0].Visible = false;
+            msOpciones.Items[1].Visible = false;
+            msOpciones.Items[2].Visible = false;
+            
+            login = new INGRESO_SISTEMA(this);
+            login.Show();
+            login.MdiParent = this;
+        }
+        public void activarOpciones(clUsuario user){
+            this.usuario = user;
+
+            if (usuario.Tipo == "administrador"){
+                msOpciones.Items[0].Enabled = true;
+                msOpciones.Items[1].Enabled = true;
+                msOpciones.Items[2].Enabled = true;
+
+                msOpciones.Items[0].Visible = true;
+                msOpciones.Items[1].Visible = true;
+                msOpciones.Items[2].Visible = true;
+            }
+            else{
+                msOpciones.Items[1].Enabled = true;
+                msOpciones.Items[2].Enabled = true;
+
+                msOpciones.Items[1].Visible = true;
+                msOpciones.Items[2].Visible = true;
+                
             }
         }
-        
+
+
+
+        /* ***Funciones barra de opciones *** */
         private void Salir_Click(object sender, EventArgs e){
             this.Close();
         }
@@ -42,7 +72,7 @@ namespace Sistemas_de_Ventas
         }
 
         private void Caja_Click(object sender, EventArgs e){
-            ABRIRTURNO caja = new ABRIRTURNO(usuario, this);
+            CAJA caja = new CAJA(usuario);
             caja.Visible = true;
             caja.MdiParent = this;
         }
@@ -61,10 +91,12 @@ namespace Sistemas_de_Ventas
             REPORTE_CAJERO reporte = new REPORTE_CAJERO();
             reporte.Visible = true;
         }
+        /* ******************************** */
 
 
 
-        //Eventos para confirmar la salida del sistema
+
+        /* ***Funciones sobre log In*** */
         private void Principal_FormClosed(object sender, FormClosedEventArgs e){
             login.Visible = true;
         }
@@ -73,6 +105,14 @@ namespace Sistemas_de_Ventas
             var window = MessageBox.Show("¿Desea salir del Sistema?", "Saliendo...", MessageBoxButtons.YesNo);
             e.Cancel = (window == DialogResult.No);
         }
+
+        private void btn_Iniciar_Click(object sender, EventArgs e){
+            login = new INGRESO_SISTEMA(this);
+            login.Show();
+            login.MdiParent = this;
+        }
+
+        /* **************************** */
         
     }
 }

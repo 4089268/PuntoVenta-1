@@ -14,118 +14,49 @@ using ClasesSistemaVentas;
 
 namespace Sistemas_de_Ventas
 {
-    public partial class INGRESO_SISTEMA : Form
-    {
-
-        public INGRESO_SISTEMA()
-        {
-            InitializeComponent();
-            try
-            {
-                MySqlDataReader nombres = clConsultasUsuarios.ObtenerNombresUsuarios();
-                int c = 0;
-                while (nombres.Read())
-                {
-                    cbUsuarios.Items.Add(nombres.GetValue(0).ToString());
-                    c++;
-                }
-                cbUsuarios.Focus();
-            }
-            catch
-            {
-                MessageBox.Show("No se encontraron usuarios!");
-            }
-        }
-
+    public partial class INGRESO_SISTEMA : Form{
+        private Principal principal;
         
+        public INGRESO_SISTEMA(Principal principal){
+            this.principal = principal;
+            InitializeComponent();
+        }
+        
+        private void btAceptar_Click(object sender, EventArgs e){
+            try{
 
-        private void presionaAceptar(){
-             try{
-                string nombre = cbUsuarios.SelectedItem.ToString();
-                clUsuario usuario = new clUsuario(clConsultasUsuarios.ObtenerDatosUsuario(nombre));
+                clUsuario usuario = new clUsuario(clConsultasUsuarios.ObtenerDatosUsuario(tb_username.Text));
 
                 if (tbPassword.Text == usuario.Password){
-                    Principal princip = new Principal(usuario , this);
-                    princip.Visible = true;
+                    principal.activarOpciones(usuario);
+
                     tbPassword.Text = null;
-                    this.Visible = false;
+                    this.Close();
                 }
                 else{
                     MessageBox.Show("Usuario o Contraseña incorrectos!");
                 }
-
             }
             catch { }
         }
 
-        private void btAceptar_Click(object sender, EventArgs e)
-        {
-            presionaAceptar();
-        }
-
-        private void btCancelar_Click(object sender, EventArgs e)
-        {
+        private void btCancelar_Click(object sender, EventArgs e){
             DialogResult dialogResult = MessageBox.Show("¿Desea salir?", "saliendo...", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 this.Close();
+                principal.Close();
             }
         }
-
-        private void cbUsuarios_Validated(object sender, EventArgs e)
-        {
-            if(cbUsuarios.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar un nombre de usuario!");
-                cbUsuarios.Focus();
-            }
-        }
-
-        private void tbPassword_Validated(object sender, EventArgs e)
-        {
             
+        private void INGRESO_SISTEMA_Load(object sender, EventArgs e){
+            principal.btn_Iniciar.Enabled = false;
+            principal.btn_Iniciar.Visible = false;
         }
 
-        private void btActualizarLista_Click(object sender, EventArgs e)
-        {
-            cbUsuarios.Items.Clear();
-            try
-            {
-                MySqlDataReader nombres = clConsultasUsuarios.ObtenerNombresUsuarios();
-                int c = 0;
-                while (nombres.Read())
-                {
-                    cbUsuarios.Items.Add(nombres.GetValue(0).ToString());
-                    c++;
-                }
-                cbUsuarios.Focus();
-            }
-            catch
-            {
-                MessageBox.Show("No se encontraron usuarios!");
-            }
-        }
-
-        private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-
-            if (e.KeyChar == 13)
-            {
-                //MessageBox.Show("Enter presionado");
-                presionaAceptar();
-            }
-        }
+        private void INGRESO_SISTEMA_FormClosed(object sender, FormClosedEventArgs e){
+            principal.btn_Iniciar.Enabled = true;
+            principal.btn_Iniciar.Visible = true;
+        }        
     }
 }

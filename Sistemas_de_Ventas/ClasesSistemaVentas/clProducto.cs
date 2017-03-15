@@ -9,8 +9,7 @@ using System.Windows.Forms;
 
 namespace ClasesSistemaVentas
 {
-    public class clProducto
-    {
+    public class clProducto{
         //propiedades...
         private int Codigo;
         public int Codigo1
