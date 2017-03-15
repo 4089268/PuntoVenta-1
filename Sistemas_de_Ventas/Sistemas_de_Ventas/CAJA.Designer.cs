@@ -52,7 +52,6 @@
             this.lbTotal = new System.Windows.Forms.Label();
             this.lbCantidad = new System.Windows.Forms.Label();
             this.lbTurno = new System.Windows.Forms.Label();
-            this.btn_cerrar = new System.Windows.Forms.Button();
             this.pnl_caja = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btCerrarTurno = new System.Windows.Forms.Button();
@@ -63,9 +62,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnl_caja.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btBuscar
@@ -108,12 +109,12 @@
             // 
             this.btCobrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btCobrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCobrar.Location = new System.Drawing.Point(736, 31);
+            this.btCobrar.Location = new System.Drawing.Point(643, 359);
             this.btCobrar.Name = "btCobrar";
             this.btCobrar.Size = new System.Drawing.Size(137, 36);
             this.btCobrar.TabIndex = 3;
             this.btCobrar.Text = "COBRAR   (F4)";
-            this.btCobrar.UseVisualStyleBackColor = false;
+            this.btCobrar.UseVisualStyleBackColor = true;
             this.btCobrar.Click += new System.EventHandler(this.btCobrar_Click);
             // 
             // tbCodigoArt
@@ -213,7 +214,7 @@
             // 
             this.lbFecha.AutoSize = true;
             this.lbFecha.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFecha.Location = new System.Drawing.Point(142, 409);
+            this.lbFecha.Location = new System.Drawing.Point(129, 409);
             this.lbFecha.Name = "lbFecha";
             this.lbFecha.Size = new System.Drawing.Size(48, 16);
             this.lbFecha.TabIndex = 9;
@@ -223,7 +224,7 @@
             // 
             this.lbHora.AutoSize = true;
             this.lbHora.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHora.Location = new System.Drawing.Point(239, 409);
+            this.lbHora.Location = new System.Drawing.Point(259, 409);
             this.lbHora.Name = "lbHora";
             this.lbHora.Size = new System.Drawing.Size(39, 16);
             this.lbHora.TabIndex = 10;
@@ -233,7 +234,7 @@
             // 
             this.lbCajero.AutoSize = true;
             this.lbCajero.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCajero.Location = new System.Drawing.Point(326, 409);
+            this.lbCajero.Location = new System.Drawing.Point(359, 409);
             this.lbCajero.Name = "lbCajero";
             this.lbCajero.Size = new System.Drawing.Size(49, 16);
             this.lbCajero.TabIndex = 11;
@@ -297,28 +298,17 @@
             // 
             this.lbTurno.AutoSize = true;
             this.lbTurno.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTurno.Location = new System.Drawing.Point(412, 409);
+            this.lbTurno.Location = new System.Drawing.Point(460, 409);
             this.lbTurno.Name = "lbTurno";
             this.lbTurno.Size = new System.Drawing.Size(44, 16);
             this.lbTurno.TabIndex = 18;
             this.lbTurno.Text = "Turno:";
             // 
-            // btn_cerrar
-            // 
-            this.btn_cerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btn_cerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_cerrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cerrar.Location = new System.Drawing.Point(758, 389);
-            this.btn_cerrar.Name = "btn_cerrar";
-            this.btn_cerrar.Size = new System.Drawing.Size(137, 36);
-            this.btn_cerrar.TabIndex = 3;
-            this.btn_cerrar.Text = "Cerrar Caja";
-            this.btn_cerrar.UseVisualStyleBackColor = true;
-            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
-            // 
             // pnl_caja
             // 
+            this.pnl_caja.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_caja.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_caja.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_caja.Controls.Add(this.btCobrar);
             this.pnl_caja.Controls.Add(this.lbTurno);
             this.pnl_caja.Controls.Add(this.lbCajero);
@@ -337,11 +327,10 @@
             this.pnl_caja.Controls.Add(this.lbProducto);
             this.pnl_caja.Controls.Add(this.tbCodigoArt);
             this.pnl_caja.Controls.Add(this.tbCantidad);
-            this.pnl_caja.Controls.Add(this.btn_cerrar);
             this.pnl_caja.Enabled = false;
-            this.pnl_caja.Location = new System.Drawing.Point(12, 116);
+            this.pnl_caja.Location = new System.Drawing.Point(3, 103);
             this.pnl_caja.Name = "pnl_caja";
-            this.pnl_caja.Size = new System.Drawing.Size(1095, 450);
+            this.pnl_caja.Size = new System.Drawing.Size(1117, 578);
             this.pnl_caja.TabIndex = 19;
             this.pnl_caja.Visible = false;
             // 
@@ -355,9 +344,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1095, 98);
+            this.panel1.Size = new System.Drawing.Size(1117, 94);
             this.panel1.TabIndex = 20;
             // 
             // btCerrarTurno
@@ -446,15 +435,28 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "CAJERO:";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pnl_caja, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1123, 554);
+            this.tableLayoutPanel1.TabIndex = 21;
+            // 
             // CAJA
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1119, 578);
+            this.ClientSize = new System.Drawing.Size(1147, 578);
             this.ControlBox = false;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnl_caja);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(20, 20);
@@ -470,6 +472,7 @@
             this.pnl_caja.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -499,7 +502,6 @@
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Label lbCantidad;
         private System.Windows.Forms.Label lbTurno;
-        private System.Windows.Forms.Button btn_cerrar;
         private System.Windows.Forms.Panel pnl_caja;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btCerrarTurno;
@@ -510,5 +512,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

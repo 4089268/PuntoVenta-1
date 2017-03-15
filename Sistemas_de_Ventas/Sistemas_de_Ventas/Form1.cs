@@ -55,6 +55,7 @@ namespace Sistemas_de_Ventas
         }
 
         private void INGRESO_SISTEMA_FormClosed(object sender, FormClosedEventArgs e){
+            
             principal.btn_Iniciar.Enabled = true;
             principal.btn_Iniciar.Visible = true;
         }        

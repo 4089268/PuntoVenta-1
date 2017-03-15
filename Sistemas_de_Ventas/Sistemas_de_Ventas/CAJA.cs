@@ -34,6 +34,7 @@ namespace Sistemas_de_Ventas
         public CAJA(clUsuario user)
         {
             InitializeComponent();
+            
             usuario = user;
             textBox1.Text = user.Nombre;
             cbTurnos.SelectedIndex = 0;

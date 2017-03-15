@@ -34,7 +34,6 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
-            this.btActualizarLista = new System.Windows.Forms.Button();
             this.tb_username = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -93,13 +92,6 @@
             this.btCancelar.UseVisualStyleBackColor = false;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
-            // btActualizarLista
-            // 
-            this.btActualizarLista.Location = new System.Drawing.Point(0, 0);
-            this.btActualizarLista.Name = "btActualizarLista";
-            this.btActualizarLista.Size = new System.Drawing.Size(75, 23);
-            this.btActualizarLista.TabIndex = 0;
-            // 
             // tb_username
             // 
             this.tb_username.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,7 +110,6 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.CancelButton = this.btCancelar;
             this.ClientSize = new System.Drawing.Size(398, 232);
-            this.Controls.Add(this.btActualizarLista);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_username);
@@ -145,7 +136,6 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btCancelar;
-        private System.Windows.Forms.Button btActualizarLista;
         private System.Windows.Forms.TextBox tb_username;
     }
 }
